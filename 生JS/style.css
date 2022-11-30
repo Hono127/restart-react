@@ -12,11 +12,6 @@ h2 {
   margin-bottom: 50px;
 }
 
-input[type="text"]{
-  font-size: 150%;
-  padding-left: 15px;
-}
-
 .add_todo_area {
   background-color: aqua;
   padding: 30px;
