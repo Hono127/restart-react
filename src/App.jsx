@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { CompleteTodo } from './components/CompleteTodo';
 import { InCompleteTodo } from './components/InCompleteTodo';
 import { InputTodo } from './components/InputTodo';
 import "./style.css";
@@ -43,17 +44,23 @@ export const App = () => {
   };
   return (
     <>
+
       <InputTodo
         todoText={todoText}
         onClick={onClickAdd}
-        onChange={onChangeTodoText} />
+        onChange={onChangeTodoText}
+        disabled={inCompleteTodos.length >= 5}
+      />
 
+      {inCompleteTodos.length >= 5 && <p style={{ color: 'red' }}>追加できるTodoは5個までです</p>}
       <InCompleteTodo
         todos={inCompleteTodos}
         onClickComplete={onClickComplete}
         onClickDelete={onClickDelete} />
 
-
+      <CompleteTodo
+        todos={completeTodos}
+        onClickReturn={onClickReturn} />
 
       {/* ==========================================完了エリア================================================ */}
 
